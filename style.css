@@ -31,6 +31,35 @@ h1 {
     background: none;
 }
 
+.buttons button:hover {
+    scale: 1.05;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.buttons button:active{
+    scale: 1.1;
+    transition: 100ms;
+    cursor: pointer;
+}
+
+.colorBtn:focus,
+.rainbowBtn:focus,
+.grayScaleBtn:focus,
+.eraserBtn:focus {
+    transition: 200ms;
+    cursor: pointer;
+    transition: 100ms;
+    scale: 1.05;
+    color: rgb(245, 245, 245);
+    background-color: rgb(61, 61, 61);
+}
+
+/* .colorPicker {
+    display:inline;
+    border: 2px solid white;
+} */
+
 .container {
     display: flex;
     align-items: center;
