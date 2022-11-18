@@ -7,7 +7,7 @@ body {
 
 h1 {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3%;
     font-size: 80px;
     font-weight: 100;
 }
@@ -51,14 +51,40 @@ h1 {
     cursor: pointer;
     transition: 100ms;
     scale: 1.05;
-    color: rgb(245, 245, 245);
-    background-color: rgb(61, 61, 61);
+    box-shadow: 1px 1px 3px rgb(128, 128, 128);
+    /* color: rgb(116, 116, 116); */
+    /* background-color: rgb(184, 184, 184); */
 }
 
-/* .colorPicker {
-    display:inline;
-    border: 2px solid white;
-} */
+.colorBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.colorPicker {
+    
+    /* border: 2px solid rgb(202, 202, 202);
+    border-radius: 50%; */
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
+}
+
+.colorPicker::-webkit-color-swatch {
+    border-radius: 50%;
+    /* border: 2px solid black; */
+}
+
+.colorPicker::-webkit-color-swatch {
+    border-radius: 50%;
+}
 
 .container {
     display: flex;
@@ -95,6 +121,7 @@ h1 {
     height: 20px;
     outline: solid 1px rgb(124, 124, 124);
     border-radius: 10px;
+    
 }
 
 .sizeSlider::-webkit-slider-thumb {
