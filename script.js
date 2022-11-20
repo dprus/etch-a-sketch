@@ -4,6 +4,10 @@ let colorPicker = document.querySelector('.colorPicker');
 let backgroundColorPicker = document.querySelector('.backgroundColorPicker');
 let backgroundColor = '';
 let color = '';
+let sizeSlider = document.querySelector('.sizeSlider');
+let sliderText = document.querySelector('.sliderText');
+let sizeSliderValue;
+let size;
 
 
 //Active class
@@ -14,11 +18,22 @@ buttons.forEach(button => {
     });
 });
 
+//Size slider 
+sizeSlider.addEventListener('input', () => {
+    sizeSliderValue = sizeSlider.value;
+    sliderText.innerHTML = sizeSliderValue + " x " + sizeSliderValue;
+    // size = Number(sizeSliderValue);
+    // console.log(size);
+    return Number(sizeSliderValue);
+
+})
+
+
 //Color Selection
 backgroundColorPicker.addEventListener('input', () => {
     backgroundColor = backgroundColorPicker.value;
     board.innerHTML = '';
-    createBoard(16);
+    createBoard(`${Number(sizeSliderValue)}`);
 })
 
 
