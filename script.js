@@ -1,7 +1,8 @@
 let buttons = document.querySelectorAll('button');
 let board = document.querySelector('.gridContainer');
 let colorPicker = document.querySelector('.colorPicker');
-createBoard(16);
+let color = '';
+
 
 //Active class
 buttons.forEach(button => {
@@ -13,9 +14,11 @@ buttons.forEach(button => {
 
 //Color Selection
 colorPicker.addEventListener('input', () => {
-    let color = colorPicker.value;
-
+    color = colorPicker.value;
+    console.log(color);
+    createBoard(16);
 })
+
 
 
 function createBoard(size) {
@@ -26,7 +29,9 @@ function createBoard(size) {
 
     for (let i = 0; i < numDivs; i++) {
         let div = document.createElement("div");
-        div.style.backgroundColor = "yellow";
+        div.style.backgroundColor = color;
         board.insertAdjacentElement("beforeend", div);
     }
 }
+
+console.log(color);
