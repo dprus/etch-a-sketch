@@ -60,6 +60,26 @@ h1 {
     gap: 4px;
 }
 
+.backgroundColorPicker {
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 60px;
+    height: 60px;
+}
+
+.backgroundColorPicker::-webkit-color-swatch {
+    border-radius: 50%;
+    /* border: 2px solid black; */
+}
+
+.backgroundColorPicker::-webkit-color-swatch {
+    border-radius: 50%;
+}
+
 .colorPicker {
     
     /* border: 2px solid rgb(202, 202, 202);
