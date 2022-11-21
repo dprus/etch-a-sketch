@@ -44,12 +44,12 @@ backgroundColorPicker.addEventListener('click', () => {
 //Clear button
 clearBtn.addEventListener('click', () => {
     colorBtn.classList.add('active');
-    board.style.backgroundColor = '#FFFFFF';
     backgroundColorPicker.value = '#FFFFFF';
     colorPicker.value = '#4B4B4B';
     clearBtn.classList.remove('active');
     let divs = document.querySelectorAll("div");
-    divs.forEach((div) => div.style.backgroundColor = '#FFFFFF');
+    divs.forEach((div) => div.style.backgroundColor = 'transparent');
+    board.style.backgroundColor = '#FFFFFF';
     buttonDiv.style.backgroundColor = "#F5F5F5";
     boardDiv.style.backgroundColor = "#F5F5F5";
     sliderDiv.style.backgroundColor = "#F5F5F5";
@@ -67,6 +67,7 @@ sizeSlider.addEventListener('input', () => {
     buttonDiv.style.backgroundColor = "#F5F5F5";
     boardDiv.style.backgroundColor = "#F5F5F5";
     sliderDiv.style.backgroundColor = "#F5F5F5";
+    backgroundColorPicker.value = '#FFFFFF';
     size = Number(sizeSliderValue);
     createBoard(size);
 })
