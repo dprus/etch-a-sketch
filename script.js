@@ -2,13 +2,11 @@ let buttons = document.querySelectorAll('button');
 let board = document.querySelector('.gridContainer');
 let colorPicker = document.querySelector('.colorPicker');
 let backgroundColorPicker = document.querySelector('.backgroundColorPicker');
-let color = '';
 let sizeSlider = document.querySelector('.sizeSlider');
 let sliderText = document.querySelector('.sliderText');
 let sizeSliderValue;
 let size;
 let clearBtn = document.querySelector('.clearBtn');
-let allDivs = '';
 let randomColor = document.querySelector('.rainbowBtn');
 let colorBtn = document.querySelector('.colorBtn');
 let grayScaleBtn = document.querySelector('.grayScaleBtn');
@@ -64,11 +62,13 @@ clearBtn.addEventListener('click', () => {
 sizeSlider.addEventListener('input', () => {
     sizeSliderValue = sizeSlider.value;
     sliderText.innerHTML = sizeSliderValue + " x " + sizeSliderValue;
+    let divs = document.querySelectorAll("div");
+    divs.forEach((div) => div.style.backgroundColor = '#FFFFFF');
+    buttonDiv.style.backgroundColor = "#F5F5F5";
+    boardDiv.style.backgroundColor = "#F5F5F5";
+    sliderDiv.style.backgroundColor = "#F5F5F5";
     size = Number(sizeSliderValue);
-    // console.log(size);
     createBoard(size);
-    // return size;
-
 })
 //Creating board
 function createBoard(size) {
