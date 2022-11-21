@@ -2,7 +2,6 @@ let buttons = document.querySelectorAll('button');
 let board = document.querySelector('.gridContainer');
 let colorPicker = document.querySelector('.colorPicker');
 let backgroundColorPicker = document.querySelector('.backgroundColorPicker');
-let backgroundColor = '';
 let color = '';
 let sizeSlider = document.querySelector('.sizeSlider');
 let sliderText = document.querySelector('.sliderText');
@@ -11,12 +10,18 @@ let size;
 let clearBtn = document.querySelector('.clearBtn');
 let allDivs = '';
 let randomColor = document.querySelector('.rainbowBtn');
-
+let colorBtn = document.querySelector('.colorBtn');
+let grayScaleBtn = document.querySelector('.grayScaleBtn');
+let buttonDiv = document.querySelector('.buttons');
+let boardDiv = document.querySelector('.board');
+let sliderDiv = document.querySelector('.sizeSliderDiv');
+let eraserBtn = document.querySelector('.eraserBtn');
+let backgroundColor = "#F5F5F5";;
 
 
 window.onload = function () {
     createBoard(16);
-    color = '#4B4B4B';
+    colorBtn.classList.add('active');
 }
 
 //Active class
@@ -28,45 +33,32 @@ buttons.forEach(button => {
 });
 
 
-//Color selection 
-// colorPicker.addEventListener('input', () => {
-//     color = colorPicker.value;
-//     return color;
-// })
-
-//Random Colors
-// randomColor.addEventListener('click', () => {
-//     div.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
-// })
-
-
 //Background Color Selection
 backgroundColorPicker.addEventListener('input', () => {
-    board.style.backgroundColor = backgroundColorPicker.value;
+    backgroundColor = backgroundColorPicker.value;
+    board.style.backgroundColor = backgroundColor;
 })
+
 backgroundColorPicker.addEventListener('click', () => {
     buttons.forEach(btn => btn.classList.remove('active'));
 })
 
 //Clear button
 clearBtn.addEventListener('click', () => {
+    colorBtn.classList.add('active');
     board.style.backgroundColor = '#FFFFFF';
     backgroundColorPicker.value = '#FFFFFF';
     colorPicker.value = '#4B4B4B';
     clearBtn.classList.remove('active');
-    // allDivs = document.querySelectorAll(".div").forEach(div => {
-    //     div.style.backgroundColor = "#FFFFFF";
+    let divs = document.querySelectorAll("div");
+    divs.forEach((div) => div.style.backgroundColor = '#FFFFFF');
+    buttonDiv.style.backgroundColor = "#F5F5F5";
+    boardDiv.style.backgroundColor = "#F5F5F5";
+    sliderDiv.style.backgroundColor = "#F5F5F5";
+
 })
-// })
 
 
-
-// //Color Selection
-// backgroundColorPicker.addEventListener('input', () => {
-//     backgroundColor = backgroundColorPicker.value;
-//     board.innerHTML = '';
-//     createBoard(`${Number(sizeSliderValue)}`);
-// })
 
 //Size slider 
 sizeSlider.addEventListener('input', () => {
@@ -80,6 +72,7 @@ sizeSlider.addEventListener('input', () => {
 })
 //Creating board
 function createBoard(size) {
+    // window.onload = this.style.backgroundColor = '#4B4B4B';
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
@@ -92,21 +85,26 @@ function createBoard(size) {
     }
 }
 
-
-randomColor.addEventListener('click', () => {
-    color == "random";
-    return color;
-})
-
 //Changing divs color
+function randomGreyHex() {
+    var v = (Math.random() * (256) | 0).toString(16);
+    return "#" + v + v + v;
+}
+
+
+
 function colorDiv() {
     if (randomColor.classList.contains("active")) {
         this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
-    } else {
+    } else if (colorBtn.classList.contains("active")) {
         this.style.backgroundColor = colorPicker.value;
+    } else if (grayScaleBtn.classList.contains("active")) {
+        this.style.backgroundColor = randomGreyHex();
+    } else if (eraserBtn.classList.contains("active")) {
+        this.style.backgroundColor = "transparent";
+    } else if (window.onload) {
+        this.style.backgroundColor = '#4B4B4B';
     }
 }
 
-function setColor(colorChoice) {
-    divColor = colorChoice;
-}
+
